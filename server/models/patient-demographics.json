@@ -1,0 +1,90 @@
+{
+  "name": "Patient_Demographics",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "PatientId": {
+      "type": "number",
+      "id": true,
+      "required": false
+    },
+    "Dob": {
+      "type": "date",
+      "required": true
+    },
+    "Age": {
+      "type": "number",
+      "required": true
+    },
+    "Gender": {
+      "type": "string",
+      "required": true
+    },
+    "MaritalStatus": {
+      "type": "string",
+      "required": true
+    },
+    "BloodGroup": {
+      "type": "string",
+      "required": true
+    },
+    "CreateDate": {
+      "type": "date",
+      "required": true
+    },
+    "CreateBy": {
+      "type": "number",
+      "required": true
+    },
+    "ModifyBy": {
+      "type": "number",
+      "required": true
+    },
+    "ModifyDate": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    
+  },
+  "acls": [],
+  "methods": {
+    "patientdem": {
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "number",
+          "required": false,
+          "description": "id of patient",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "patient",
+          "type": "array",
+          "root": true,
+          "description": "result of demographics"
+        }
+      ],
+      "description": "to get details demographocs",
+      "http": [
+        {
+          "path": "/",
+          "verb": "get"
+        },
+        {
+          "path": "/",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}

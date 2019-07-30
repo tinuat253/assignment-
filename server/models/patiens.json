@@ -1,0 +1,77 @@
+{
+  "name": "Patients",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "PatientId": {
+      "type": "number",
+      "id": true,
+      "required": false
+    },
+    "Email": {
+      "type": "string",
+      "required": true
+    },
+    "Password": {
+      "type": "string",
+      "required": true
+    },
+    "FirstName": {
+      "type": "string",
+      "required": true
+    },
+    "LastName": {
+      "type": "string",
+      "required": true
+    },
+    "CreateDate": {
+      "type": "date",
+      "required": true
+    },
+    "ModifyBy": {
+      "type": "number",
+      "required": true
+    },
+    "ModifyDate": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "getPatientDetails": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "string",
+          "required": false,
+          "description": "patient id for validaation"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "patient",
+          "type": "array",
+          "root": true,
+          "description": "getting result"
+        }
+      ],
+      "description": "getting patient details",
+      "http": [
+        {
+          "path": "/",
+          "verb": "get"
+        },
+        {
+          "path": "/",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}
